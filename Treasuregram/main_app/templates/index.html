@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TreasureGram</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <nav class="fixed top-0 right-0 left-0 text-center">
+        <a class="inline-block" href="/">
+            <img class="h-8" src="{% static 'images/logo.png' %}">
+        </a>
+    </nav>
+
+    <main>
+        <h1>TreasureGram</h1>
+
+        <div class="flex flex-row">
+            {% for treasure in treasures %}
+                <div class="m-2 bg-gray-200 border rounded">
+                    <div class="flex items-center pl-4 h-12 border-b bg-gray-300">{{ treasure.name }}</div>
+                    <div class="p-4">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="p-2">Material:</td>
+                                    <td lass="p-2">{{ treasure.material }}</td>
+                                </tr>
+                                <tr>
+                                    <td lass="p-2">Value:</td>
+                                    <td lass="p-2">{{ treasure.value }}</td>
+                                </tr>
+                                <tr>
+                                    <td lass="p-2">Location:</td>
+                                    <td lass="p-2">{{ treasure.location }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>
